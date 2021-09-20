@@ -16,8 +16,8 @@ console.log(pokemons);
 for (let i = 0; i < pokemons.size; i++){
    if (pokemons[i].size > 3) {
     document.write("<p> name:" + pokemons[i].name + " height: " + pokemons[i].size + "wow this is a big pokemon!</p>");
-}else if (pokemons[i].size > 1.5 && pokemons[i].size < 3)
-    document.write("<p> name:" + pokemons[i].name + " height: " + pokemons[i].size + "this is an average pokemon</p>";
+}else if (pokemons[i].size > 1.5 && pokemons[i].size < 3) {
+    document.write("<p> name:" + pokemons[i].name + " height: " + pokemons[i].size + "this is an average pokemon</p>");
 }else {
     document.write("<p> name:" + pokemons[i].name + " height: " + pokemons[i].size + "this is a small pokemon</p>");
 }
