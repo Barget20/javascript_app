@@ -1,4 +1,3 @@
-
 var pokemonList;
 
 let pokemons = [
@@ -12,16 +11,16 @@ let pokemons = [
 
 console.log(pokemons);
 
-
-for (let i = 0; i < pokemons.length; i++){
-   if (pokemons[i].size > 3) {
-    document.write("<p> name:" + pokemons[i].name + " height: " + pokemons[i].size + "wow this is a big pokemon!</p>");
-}else if (pokemons[i].size > 1.5 && pokemons[i].size < 3) {
-    document.write("<p> name:" + pokemons[i].name + " height: " + pokemons[i].size + "this is an average pokemon</p>");
+pokemons.forEach(function (pokemons){
+  document.write
+  if (pokemons.size > 3) {
+    document.write("<p> name:" + pokemons.name + " height: " + pokemons.size + " wow this is a big pokemon!</p>");
+}else if (pokemons.size > 1.5 && pokemons.size < 3) {
+    document.write("<p> name:" + pokemons.name + " height: " + pokemons.size + " this is an average pokemon</p>");
 }else {
-    document.write("<p> name:" + pokemons[i].name + " height: " + pokemons[i].size + "this is a small pokemon</p>");
+    document.write("<p> name:" + pokemons.name + " height: " + pokemons.size + " this is a small pokemon</p>");
 }
-}
+});
 
 //let pokemons = ["Bulbasaur", "Vulpix", "Growlithe", "Houndour", "Oddish", "Golem",];
 //let text = "";
