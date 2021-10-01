@@ -1,7 +1,5 @@
 var pokemonRepository = (function (){
-    var pokemonList;
-    
-    let pokemons = [
+    var pokemonList = [
         {name: "Bulbasaur", size: 2.04, type: "water"},
         {name: "Vulpix", size: 2.0, type: "fire"},
         {name: "Growlithe", size: 2.04, type: "fire"},
@@ -9,8 +7,7 @@ var pokemonRepository = (function (){
         {name: "Oddish", size: 1.08, type: ["grass", "poison"]},
         {name: "Golem", size: 4.07, type: ["rock", "ground"]}
     ];
-    })();
-    
+
       function add(pokemon) {
           pokemonList.push(pokemon);
         }
@@ -20,17 +17,17 @@ var pokemonRepository = (function (){
         }
       
       return {
-        add: add
+        add: add,
         getAll: getAll
       };
     })();
     
     console.log ( pokemonRepository.getAll());
-    console.log ( pokemonRepository.add());
+
+    console.log ( pokemonRepository.add({name: "Charizard", size: 5.07, type: ["fire", "flying"]}));
     
     
-    pokemons.forEach(function (pokemons){
-      document.write
+    pokemonRepository.getAll().forEach(function (pokemons){
       if (pokemons.size > 3) {
         document.write("<p> name:" + pokemons.name + " height: " + pokemons.size + " wow this is a big pokemon!</p>");
     }else if (pokemons.size > 1.5 && pokemons.size < 3) {
