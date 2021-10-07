@@ -1,47 +1,51 @@
-var pokemonRepository = (function (){
-    var pokemonList = [
-        {name: "Bulbasaur", size: 2.04, type: "water"},
-        {name: "Vulpix", size: 2.0, type: "fire"},
-        {name: "Growlithe", size: 2.04, type: "fire"},
-        {name: "Houndour", size: 2.0, type: ["dark", "fire"]},
-        {name: "Oddish", size: 1.08, type: ["grass", "poison"]},
-        {name: "Golem", size: 4.07, type: ["rock", "ground"]}
-    ];
+let pokemonRepository = (function (){
+  let repository = [
+      {name: "Bulbasaur", size: 2.04, type: "water"},
+      {name: "Vulpix", size: 2.0, type: "fire"},
+      {name: "Growlithe", size: 2.04, type: "fire"},
+      {name: "Houndour", size: 2.0, type: ["dark", "fire"]},
+      {name: "Oddish", size: 1.08, type: ["grass", "poison"]},
+      {name: "Golem", size: 4.07, type: ["rock", "ground"]}
+  ];
 
-      function add(pokemon) {
-          pokemonList.push(pokemon);
-        }
-    
-      function getAll() {
-          return pokemonList;
-        }
-      
-      return {
-        add: add,
-        getAll: getAll
-      };
-    })();
-    
-    console.log ( pokemonRepository.getAll());
-
-    console.log ( pokemonRepository.add({name: "Charizard", size: 5.07, type: ["fire", "flying"]}));
-    
-    
-    pokemonRepository.getAll().forEach(function (pokemons){
-      if (pokemons.size > 3) {
-        document.write("<p> name:" + pokemons.name + " height: " + pokemons.size + " wow this is a big pokemon!</p>");
-    }else if (pokemons.size > 1.5 && pokemons.size < 3) {
-        document.write("<p> name:" + pokemons.name + " height: " + pokemons.size + " this is an average pokemon</p>");
-    }else {
-        document.write("<p> name:" + pokemons.name + " height: " + pokemons.size + " this is a small pokemon</p>");
+    function add(pokemon) {
+        pokemonList.push(pokemon);
+      }
+  
+    function getAll() {
+        return pokemonList;
+      }
+    function addListItem(pokemon){
+      let pokemonList = document.querySelector(".pokemon-list");
+      let listpokemon = document.createElement("li");
+      let button = document.createElement("button");
+      button.innerText = pokemon.name;
+      button.classList.add("button-class");
+      listpokemon.appendChild(button);
+      pokemonList.appendChild(listpokemon);
     }
-    });
 
-//let pokemons = ["Bulbasaur", "Vulpix", "Growlithe", "Houndour", "Oddish", "Golem",];
-//let text = "";
-//let i = 0;
-//for (;pokemons[i];){
-  //  text = text + " " + pokemons[i];
-    //i++;
-//}
-//console.log(text); 
+    return {
+      add: add,
+      getAll: getAll,
+      addListItem: addListItem
+    };
+  })();
+
+  pokemonRepository.add({name: "Charizard", size: 5.07, type: ["fire", "flying"]}));
+  
+  console.log(pokemonRepository.getAll());
+
+  pokemonRepository.getAll().forEach(function (pokemon){
+    pokemonRepository.addListItem(pokemon);
+   });
+    
+      //if (pokemons.size > 3) {
+        //document.write("<p> name:" + pokemons.name + " height: " + pokemons.size + " wow this is a big pokemon!</p>");
+    //}else if (pokemons.size > 1.5 && pokemons.size < 3) {
+       // document.write("<p> name:" + pokemons.name + " height: " + pokemons.size + " this is an average pokemon</p>");
+    //}else {
+        //document.write("<p> name:" + pokemons.name + " height: " + pokemons.size + " this is a small pokemon</p>");
+     // }
+   
+
