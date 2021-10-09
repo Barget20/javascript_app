@@ -15,6 +15,10 @@ let pokemonRepository = (function (){
     function getAll() {
         return repository;
       }
+
+     function showDetails(pokemon){
+       console.log(pokemon);
+     } 
     function addListItem(pokemon){
       let pokemonList = document.querySelector(".pokemon-list");
       let listpokemon = document.createElement("li");
@@ -36,7 +40,7 @@ let pokemonRepository = (function (){
     };
   })();
 
-  pokemonRepository.add({name: "Charizard", size: 5.07, type: ["fire", "flying"]}));
+  pokemonRepository.add({name: "Charizard", size: 5.07, type: ["fire", "flying"]});
   
   console.log(pokemonRepository.getAll());
 
