@@ -10,17 +10,19 @@ let pokemonRepository = (function (){
   let apiUrl = 'http://pokeapi.co/api/v2/pokemon/?limit=150';
 
     function add(pokemon) {
+      if (
+        typeof pokemon === "object" &&
+        "name" in pokemon //&&
+       //"detailsUrl" in pokemon
+      ) {
         repository.push(pokemon);
+      } else {
+        console.log("pokemon is not correct")
+      }
       }
   
     function getAll() {
         return repository;
-      }
-
-     function showDetails(pokemon){
-       loadDetails(pokemon).then(function () {
-       console.log(pokemon);
-     });
     }
      
     function addListItem(pokemon){
@@ -31,7 +33,7 @@ let pokemonRepository = (function (){
       button.classList.add("button-class");
       listpokemon.appendChild(button);
       pokemonList.appendChild(listpokemon);
-      button.addEventListener('click', function(){
+      button.addEventListener('click', function(event){
         showDetails(pokemon)
       });
     }
@@ -45,6 +47,7 @@ let pokemonRepository = (function (){
             detailsUrl: item.url
           };
           add(pokemon);
+          console.log(pokemon);
         });
       }).catch(function (e) {
         console.error(e);      
@@ -56,14 +59,21 @@ let pokemonRepository = (function (){
       return fetch(url).then(function (response) {
         return response.json();
       }).then(function (details) {
-        //add the hdetails to the item here?
+        //add the details to the item here?
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
       item.types = details.types;
+      //need to add types in later exercise
       }).catch(function (e) {
         console.error(e);
       });
     }
+
+    function showDetails(item){
+      loadDetails(item).then(function () {
+      console.log(item);
+    });
+   }
 
     return {
       add: add,
