@@ -1,11 +1,11 @@
 let pokemonRepository = (function (){
   let repository = [
-      {name: "Bulbasaur", size: 2.04, type: "water"},
-      {name: "Vulpix", size: 2.0, type: "fire"},
-      {name: "Growlithe", size: 2.04, type: "fire"},
-      {name: "Houndour", size: 2.0, type: ["dark", "fire"]},
-      {name: "Oddish", size: 1.08, type: ["grass", "poison"]},
-      {name: "Golem", size: 4.07, type: ["rock", "ground"]}
+     // {name: "Bulbasaur", size: 2.04, type: "water"},
+     // {name: "Vulpix", size: 2.0, type: "fire"},
+     // {name: "Growlithe", size: 2.04, type: "fire"},
+     // {name: "Houndour", size: 2.0, type: ["dark", "fire"]},
+     // {name: "Oddish", size: 1.08, type: ["grass", "poison"]},
+     // {name: "Golem", size: 4.07, type: ["rock", "ground"]}
   ];
   let apiUrl = 'http://pokeapi.co/api/v2/pokemon/?limit=150';
 
