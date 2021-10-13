@@ -7,7 +7,7 @@ let pokemonRepository = (function (){
      // {name: "Oddish", size: 1.08, type: ["grass", "poison"]},
      // {name: "Golem", size: 4.07, type: ["rock", "ground"]}
   ];
-  let apiUrl = 'http://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
     function add(pokemon) {
       if (
