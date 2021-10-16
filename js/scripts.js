@@ -93,59 +93,100 @@ pokemonRepository.loadList().then(function() {
   
   console.log(pokemonRepository.getAll());
 
-function showModal (){
+
+let pokemonRepository = (function() {
+
   let modalContainer = document.querySelector('#modal-container');
-  modalContainer.classList.add('is-visible');
-}
-
-function showModal (title, text){
-  let modalContainer = document.querySelector('#modal-container');
-  modalContainer.classList.add('is-visible');
-}
-
-//modalContainer.innerHTML = '';
-//clears the existing modal content//
-
-let modal = document.createElement('div');
-modal.classList.add('modal');
-
-//this adds new content below//
-let closeButtonElement = document.createElement('button');
-closeButtonElement.classList.add('modal-close');
-closeButtonElement.innerText = 'Close';
-//close button option added//
-
-let titleElement = document.createElement('h1');
-titleElement.innerText = title;
-
-let contentElement = document.createElement('p');
-contentElement.innerText = text;
-
-modal.appendChild(closeButtonElement);
-modal.appendChild(titleElement);
-modal.appendChild(contentElement);
-modalContainer.appendChild(modal);
-
-modalContainer.classList.add('is-visible');
-
-document.querySelector('#show-modal').addEventListener('click', () => {
-  showModal('Modal Title', 'This is the modal content!');
-});
-
-
-
-
- //pokemonRepository.add({name: "Charizard", size: 5.07, type: ["fire", "flying"]});
- // pokemonRepository.getAll().forEach(function (pokemon){
-   // pokemonRepository.addListItem(pokemon);
-   //});
+  
+  function showModal (title, text) {
+      modalContainer.innerHTML = '';
+    let modal = document.createElement('div');
+      modal.classList.add('modal');
     
-      //if (pokemons.size > 3) {
-        //document.write("<p> name:" + pokemons.name + " height: " + pokemons.size + " wow this is a big pokemon!</p>");
-    //}else if (pokemons.size > 1.5 && pokemons.size < 3) {
-       // document.write("<p> name:" + pokemons.name + " height: " + pokemons.size + " this is an average pokemon</p>");
-    //}else {
-        //document.write("<p> name:" + pokemons.name + " height: " + pokemons.size + " this is a small pokemon</p>");
-     // }
-   
-
+    //this adds new content below//
+    let closeButtonElement = document.createElement('button');
+      closeButtonElement.classList.add('modal-close');
+      closeButtonElement.innerText = 'Close';
+      closeButtonElement.addEventListener('click', hideModal);
+    
+    let titleElement = document.createElement('h1');
+      titleElement.innerText = title;
+  
+    let contentElement = document.createElement('p');
+      contentElement.innerText = text;
+  
+    modal.appendChild(closeButtonElement);
+    modal.appendChild(titleElement);
+    modal.appendChild(contentElement);
+    modalContainer.appendChild(modal);
+    modalContainer.classList.add('is-visible');
+    }
+  
+    let dialogPromiseReject; 
+     
+    function hideModal() {
+      let modalContainer = document.querySelector('#modal-container');
+       modalContainer.classList.remove('is-visible');
+  
+      if (dialogPromiseReject) {
+         dialogPromiseReject();
+         dialogPromiseReject = null;
+      }
+    } 
+    
+    function showDialog(title, text) {
+      showModal(title, text);
+    
+      //below adds a confirm and cancel button 
+    let modal = modalContainer.querySelector('.modal');
+      
+    let confirmButton = document.createElement('button');
+      confirmButton.classList.add('modal-confirm');
+      confirmButton.innerText = 'Confirm';
+  
+    let cancelButton = document.createElement('button');
+      cancelButton.classList.add('modal-cancel');
+      cancelButton.innerText = 'Cancel';
+  
+    modal.appendChild(confirmButton);
+    modal.appendChild(cancelButton);
+  
+    confirmButton.focus();
+  
+    return new Promise((resolve, reject) => {
+        cancelButton.addEventListener('click', hideModal);
+        confirmButton.addEventListener('click', () => {
+          dialogPromiseReject = null;
+          hideModal();
+          resolve();
+      });
+      dialogPromiseReject = reject;
+    });
+  }
+  
+document.querySelector('#show-dialog').addEventListener('click', () => {
+  showDialog('Confirm action', 'Are you sure you want to do this?').then(function () {
+        alert('confirmed!');
+    }, () => {
+        alert('not confirmed');
+    });
+});
+  
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+        hideModal();
+    }
+  });
+  
+  modalContainer.addEventListener('click', (e) => {
+    let target = e.target;
+    if (target === modalContainer) {
+        hideModal ();
+    }
+  });
+    
+  document.querySelector('#show-modal').addEventListener('click', () => {
+      showModal('Modal Title', 'This is the modal content!');
+  });
+  
+})();
