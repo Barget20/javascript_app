@@ -121,6 +121,39 @@ let pokemonRepository = (function (){
       }
     } 
     
+    function showModal(item) {
+      let modalBody = $(".modal-body");
+      let modalTitle = $(".modal-title");
+      let modalHeader = $(".modal-header");
+
+      modalTitle.empty();
+      modalBody.empty();
+      
+      //creating element for name in the modal content
+      let nameElement = $("<h1>" + item.name + "</h1>");
+      //creating img in modal content
+      let imageElementFront = $('img class="modal-img" style="width:50%">');
+      imageElementFront.attr =("src", item.imageUrlFront);
+      imageElementBack = $('img class="modal-img" style="width:50%">');
+      imageElementBack.attr = ("src", item.imageUrlBack);
+      //creating element for height in modal content
+      let heightElement = $("<p>" + "height : " + item.height + "</p>");
+      //creating  element for weight in modal content
+      let weightElement = $("<p>" + "weight : " + item.weight + "</p>");
+      //creating element for types in modal content
+      let typesElement = $("<p>" + "weight : " + item.type + "</p>");
+      //creating element for abilities in modal content
+      let abilitiesElement = $("<p>" + "abilities : " + abilities.type + "</p>");
+
+      modalTitle.append(nameElement);
+      modalBody.append(imageElementFront);
+      modalBody.append(imageElementBack);
+      modalBody.append(heightElement);
+      modalBody.append(weightElement);
+      modalBody.append(typesElement);
+      modalBody.append(abilitiesElement);
+    }
+
     
       //!!below adds a confirm and cancel button!! 
     //let modal = modalContainer.querySelector('.modal');
@@ -179,6 +212,11 @@ let pokemonRepository = (function (){
     showDetails: showDetails
   };
 })();
+
+//$('[data-toggle="modal"]').on('click', function(){
+  //let targetSelector = $(this).attr('data-target');
+  //$(targetSelector).modal('show'); // Bootstrap’s own function to make the modal appear
+//});
     
 pokemonRepository.loadList().then(function() {
   pokemonRepository.getAll().forEach(function(pokemon) {
