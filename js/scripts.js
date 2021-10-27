@@ -127,3 +127,17 @@ pokemonRepository.loadList().then(function() {
     pokemonRepository.addListItem(pokemon);
   });
 });
+
+{
+  "env": {
+      "es6": true,
+      "browser": true
+  },
+  "extends": [
+      "eslint:recommended"
+  ],
+  "rules": {
+      "quotes": ["error", "single"]
+      console.error('Error when validating item', item);
+  }
+}
