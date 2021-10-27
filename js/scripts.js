@@ -61,8 +61,10 @@ let pokemonRepository = (function (){
       let url = item.detailsUrl;
       return fetch(url).then(function (response) {
         return response.json();
-      }).then(function (details) {
-      item.imageUrl = details.sprites.front_default;
+      })
+      .then(function (details) {
+      item.imageUrlFront = details.sprites.front_default;
+      item.imageUrlBack = details.sprites.back_default;
       item.height = details.height;
       item.types = details.types;
       }).catch(function (e) {
@@ -90,16 +92,16 @@ let pokemonRepository = (function (){
       modalTitle.text(item.name);
       //creating img in modal content
       let imageElementFront = $(
-        <img class="modal-img" style="width:50%"/>);
+        '<img class="modal-img" style="width:50%"/>');
       imageElementFront.attr =("src", item.imageUrlFront);
-      imageElementBack = $('img class="modal-img" style="width:50%">');
+      imageElementBack = $('<img class="modal-img" style="width:50%">');
       imageElementBack.attr = ("src", item.imageUrlBack);
       //creating element for height in modal content
       let heightElement = $("<p>" + "height : " + item.height + "</p>");
       //creating  element for weight in modal content
       let weightElement = $("<p>" + "weight : " + item.weight + "</p>");
       //creating element for types in modal content
-      let typesElement = $("<p>" + "weight : " + t.type.join(",") + "</p>");
+      let typesElement = $("<p>" + "weight : " + item.type.map(t => t.type.name) + "</p>");
       
 
       modalTitle.append(nameElement);
