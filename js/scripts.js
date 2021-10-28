@@ -66,6 +66,7 @@ let pokemonRepository = (function (){
       item.imageUrlFront = details.sprites.front_default;
       item.imageUrlBack = details.sprites.back_default;
       item.height = details.height;
+      item.weight = details.weight;
       item.types = details.types;
       }).catch(function (e) {
         console.error(e);
@@ -92,16 +93,16 @@ let pokemonRepository = (function (){
       modalTitle.text(item.name);
       //creating img in modal content
       let imageElementFront = $(
-        '<img class="modal-img" style="width:50%"/>');
+        '<img class="modal-img" style="width:50%" src="${item.imageUrlFront}"/>');
       imageElementFront.attr =("src", item.imageUrlFront);
-      imageElementBack = $('<img class="modal-img" style="width:50%">');
+      imageElementBack = $('<img class="modal-img" style="width:50%" src="${item.imageUrlBack}">');
       imageElementBack.attr = ("src", item.imageUrlBack);
       //creating element for height in modal content
       let heightElement = $("<p>" + "height : " + item.height + "</p>");
       //creating  element for weight in modal content
       let weightElement = $("<p>" + "weight : " + item.weight + "</p>");
       //creating element for types in modal content
-      let typesElement = $("<p>" + "weight : " + item.type.map(t => t.type.name) + "</p>");
+      let typesElement = $("<p>" + "weight : " + item.types.map(t => t.type.name) + "</p>");
       
 
       modalTitle.append(nameElement);
@@ -127,17 +128,3 @@ pokemonRepository.loadList().then(function() {
     pokemonRepository.addListItem(pokemon);
   });
 });
-
-{
-  "env": {
-      "es6": true,
-      "browser": true
-  },
-  "extends": [
-      "eslint:recommended"
-  ],
-  "rules": {
-      "quotes": ["error", "single"]
-      console.error('Error when validating item', item);
-  }
-}
