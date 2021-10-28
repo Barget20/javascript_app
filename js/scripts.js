@@ -8,7 +8,7 @@ let pokemonRepository = (function (){
      // {name: "Golem", size: 4.07, type: ["rock", "ground"]}
   ];
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
-  let modalContainer = document.querySelector("#pokemonModal");
+  //let modalContainer = document.querySelector("#pokemonModal");
 
   function add(pokemon) {
     if (
@@ -95,7 +95,7 @@ let pokemonRepository = (function (){
       let imageElementFront = $(
         '<img class="modal-img" style="width:50%">');
       imageElementFront.attr =("src", item.imageUrlFront);
-      imageElementBack = $('<img class="modal-img" style="width:50%">');
+      let imageElementBack = $('<img class="modal-img" style="width:50%">');
       imageElementBack.attr = ("src", item.imageUrlBack);
       //creating element for height in modal content
       let heightElement = $("<p>" + "height : " + item.height + "</p>");
