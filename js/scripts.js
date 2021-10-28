@@ -93,9 +93,9 @@ let pokemonRepository = (function (){
       modalTitle.text(item.name);
       //creating img in modal content
       let imageElementFront = $(
-        '<img class="modal-img" style="width:50%" src="${item.imageUrlFront}"/>');
+        '<img class="modal-img" style="width:50%" src=${item.imageUrlFront}/>');
       imageElementFront.attr =("src", item.imageUrlFront);
-      imageElementBack = $('<img class="modal-img" style="width:50%" src="${item.imageUrlBack}">');
+      imageElementBack = $('<img class="modal-img" style="width:50%" src=${item.imageUrlBack}>');
       imageElementBack.attr = ("src", item.imageUrlBack);
       //creating element for height in modal content
       let heightElement = $("<p>" + "height : " + item.height + "</p>");
