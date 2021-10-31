@@ -7,18 +7,18 @@ let pokemonRepository = (function (){
      // {name: "Oddish", size: 1.08, type: ["grass", "poison"]},
      // {name: "Golem", size: 4.07, type: ["rock", "ground"]}
   ];
-  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
   //let modalContainer = document.querySelector("#pokemonModal");
 
   function add(pokemon) {
     if (
-      typeof pokemon === "object" &&
-        "name" in pokemon //&&
+      typeof pokemon === 'object' &&
+        'name' in pokemon //&&
        //"detailsUrl" in pokemon
       ) {
         repository.push(pokemon);
       } else {
-        console.log("pokemon is not correct")
+        console.log('pokemon is not correct')
       }
     }
   
@@ -27,16 +27,16 @@ let pokemonRepository = (function (){
     }
      
     function addListItem(pokemon){
-      let pokemonList = document.querySelector(".pokemon-list");
-      let listpokemon = document.createElement("li");
-      let button = document.createElement("button");
+      let pokemonList = document.querySelector('.pokemon-list');
+      let listpokemon = document.createElement('li');
+      let button = document.createElement('button');
       button.innerText = pokemon.name;
-      button.classList.add("button-class");
-      button.setAttribute("data-toggle", "modal");
-      button.setAttribute("data-target", "#pokemonModal")
+      button.classList.add('button-class');
+      button.setAttribute('data-toggle', 'modal');
+      button.setAttribute('data-target', '#pokemonModal')
       listpokemon.appendChild(button);
       pokemonList.appendChild(listpokemon);
-      button.addEventListener('click', function(event){
+      button.addEventListener('click', function(){
         showDetails(pokemon)
       });
     }
@@ -82,27 +82,33 @@ let pokemonRepository = (function (){
    
     function showModal(item) {
       console.log(item);
-      let modalBody = $(".modal-body");
-      let modalTitle = $(".modal-title");
+      let modalBody = $('.modal-body');
+      let modalTitle = $('.modal-title');
 
       modalTitle.empty();
       modalBody.empty();
       
       //creating element for name in the modal content
-      let nameElement = $("<h1>" + item.name + "</h1>");
+      let nameElement = $('<h1>' + item.name + '</h1>');
       modalTitle.text(item.name);
+
       //creating img in modal content
       let imageElementFront = $(
-        '<img class="modal-img" style="width:50%">');
-      imageElementFront.attr =("src", item.imageUrlFront);
-      let imageElementBack = $('<img class="modal-img" style="width:50%">');
-      imageElementBack.attr = ("src", item.imageUrlBack);
+        '<img class="modal-img" style="width:50%" src="${item.imageUrlFront}">');
+      imageElementFront.attr =('src', item.imageUrlFront);
+
+      let imageElementBack = $(
+        '<img class="modal-img" style="width:50%" src+"${item.imageUrlFront}">');
+      imageElementBack.attr = ('src', item.imageUrlBack);
+      
       //creating element for height in modal content
-      let heightElement = $("<p>" + "height : " + item.height + "</p>");
+      let heightElement = $('<p>' + 'height : ' + item.height + '</p>');
+      
       //creating  element for weight in modal content
-      let weightElement = $("<p>" + "weight : " + item.weight + "</p>");
+      let weightElement = $('<p>' + 'weight : ' + item.weight + '</p>');
+      
       //creating element for types in modal content
-      let typesElement = $("<p>" + "weight : " + item.types.map(t => t.type.name) + "</p>");
+      let typesElement = $('<p>' + 'weight : ' + item.types.map(t => t.type.name) + '</p>');
       
 
       modalTitle.append(nameElement);
