@@ -1,18 +1,20 @@
 
 .button-class {
   background-color: #4caf50;
-  border: none;
-  color: white;
+  border: 8px;
   padding: 16px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  display: table;
+  column-count: 3;
+  height: 100%;
+  width: 35vw;
+  font-size: 35px;
   margin: 4px 2px;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   cursor: pointer;
-  background-color: white;
+  background-color: #99ff99;
   color: black;
   border: 2px solid #4caf50;
 }
@@ -20,5 +22,14 @@
 html, 
 body {
   font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.modal-body {
+  text-align: center;
 }
 
