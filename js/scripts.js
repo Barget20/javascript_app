@@ -97,7 +97,7 @@ let pokemonRepository = (function (){
         `<img class="modal-img" style="width:50%" src="${item.imageUrlFront}">`);
 
       let imageElementBack = $(
-        `<img class="modal-img" style="width:50%" src+"${item.imageUrlBack}">`);
+        `<img class="modal-img" style="width:50%" src="${item.imageUrlBack}">`);
       
       //creating element for height in modal content
       let heightElement = $('<p>' + 'height : ' + item.height + '</p>');
