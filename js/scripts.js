@@ -107,7 +107,7 @@ let pokemonRepository = (function (){
       let weightElement = $('<p>' + 'weight : ' + item.weight + '</p>');
       
       //creating element for types in modal content
-      let typesElement = $('<p>' + 'weight : ' + item.types.map(t => t.type.name) + '</p>');
+      let typesElement = $('<p>' + 'type : ' + item.types.map(t => t.type.name) + '</p>');
       
 
       modalTitle.append(nameElement);
