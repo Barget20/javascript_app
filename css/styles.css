@@ -38,6 +38,7 @@ body {
 button:first-letter, h5 {
   text-transform: capitalize;
   text-align: center;
+  color: black;
 }
 
 modal-title:first-letter, h1 {
