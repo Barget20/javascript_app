@@ -1,6 +1,5 @@
 
 .button-class {
-  background-color: #4caf50;
   border: 8px;
   padding: 16px 32px;
   text-align: center;
@@ -14,9 +13,9 @@
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   cursor: pointer;
-  background-color: #99ff99;
+  background-color: #e65858;
   color: black;
-  border: 2px solid #4caf50;
+  border: 2px solid #e0252e;
 }
 
 html, 
@@ -38,4 +37,5 @@ button:first letter, h5 {
 modal-title:first-letter, h1 {
   text-transform: capitalize;
   text-align: center;
+  color: red;
 }
