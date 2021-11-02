@@ -18,7 +18,7 @@
   border: 2px solid #e0252e;
 }
 
-button.button-class:first-letter {
+button, .button-class:first-letter {
   text-transform: capitalize;
   text-align: center;
   color: black;
