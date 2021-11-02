@@ -24,6 +24,10 @@ button, .button-class:first-letter {
   color: black;
 }
 
+li {
+  list-style-type: none;
+}
+
 html, 
 body {
   font-family: Arial, sans-serif;
@@ -45,4 +49,10 @@ modal-title:first-letter, h1 {
   text-transform: capitalize;
   text-align: center;
   color: #e0252e;
+}
+
+.pokemon-list-item {
+  display: flex;
+  justify-content: center;
+  padding: 16px
 }
