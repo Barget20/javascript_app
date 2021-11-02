@@ -34,11 +34,6 @@ body {
   text-align: center;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 300px 300px 300px;
-}
-
 button:first-letter, h5 {
   text-transform: capitalize;
   text-align: center;
