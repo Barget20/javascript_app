@@ -101,13 +101,13 @@ let pokemonRepository = (function (){
         `<img class="modal-img" style="width:50%" src="${item.imageUrlBack}">`);
       
       //creating element for height in modal content
-      let heightElement = $('<p>' + 'height : ' + item.height + '</p>');
+      let heightElement = $('<p>' + 'Height : ' + item.height + '</p>');
       
       //creating  element for weight in modal content
-      let weightElement = $('<p>' + 'weight : ' + item.weight + '</p>');
+      let weightElement = $('<p>' + 'Weight : ' + item.weight + '</p>');
       
       //creating element for types in modal content
-      let typesElement = $('<p>' + 'type : ' + item.types.map(t => t.type.name) + '</p>');
+      let typesElement = $('<p>' + 'Type : ' + item.types.map(t => t.type.name) + '</p>');
       
 
       modalTitle.append(nameElement);
