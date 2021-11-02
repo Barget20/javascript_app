@@ -25,23 +25,17 @@ body {
   text-align: center;
 }
 
-h1 {
-  text-align: center;
+.grid {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
 }
 
 button:first letter, h5 {
   text-transform: capitalize;
+  text-align: center;
 }
 
 modal-title:first-letter, h1 {
   text-transform: capitalize;
-}
-
-.modal-body {
   text-align: center;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 300px 300px 300px;
 }
