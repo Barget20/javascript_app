@@ -5,7 +5,7 @@
   padding: 16px 32px;
   text-align: center;
   text-decoration: none;
-  display: table;
+  display: grid;
   column-count: 3;
   height: 100%;
   width: 35vw;
@@ -29,7 +29,19 @@ h1 {
   text-align: center;
 }
 
+button:first letter, h5 {
+  text-transform: capitalize;
+}
+
+modal-title:first-letter, h1 {
+  text-transform: capitalize;
+}
+
 .modal-body {
   text-align: center;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+}
