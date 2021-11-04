@@ -54,6 +54,6 @@ modal-title:first-letter, h1 {
 
 @media (max-width: 575.98px) {
 button {
-  font-size: 2em;
+  font-size: 1em;
   }
 }
